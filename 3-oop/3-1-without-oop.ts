@@ -19,4 +19,11 @@
   coffeeBeans += 10 * BEANS_GRAMN_PER_SHOT;
   const coffee = makeCoffee(2);
   console.log(coffee);
+  /* 출력
+  grinding beans for 2
+  heating up... 🔥
+  Pulling 2 shots... ☕️
+  Steaming some milk... 🥛
+  { shots: 2, hasMilk: true }
+  */
 }

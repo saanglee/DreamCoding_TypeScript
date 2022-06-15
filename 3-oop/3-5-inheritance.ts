@@ -1,17 +1,11 @@
 {
-  type CoffeeCup = {
-    shots: number;
-    // optional
-    hasMilk?: boolean;
-    hasSugar?: boolean;
-  };
+  type CoffeeCup = { shots: number; hasMilk: boolean };
 
   interface CoffeeMaker {
     // 함수 정의
     makeCoffee(shots: number): CoffeeCup;
   }
 
-  // 부모 클래스
   class CoffeeMachine implements CoffeeMaker {
     private static BEANS_GRAMM_PER_SHOT: number = 7; // class level
     private coffeeBeans: number = 0; // instance (object) level
@@ -64,7 +58,7 @@
     }
   }
 
-  // CoffeeMachine 상속받는 라떼머신 클래스
+  // 커피머신 클래스 상속받는 라떼머신 클래스
   class CaffeeLatteMachine extends CoffeeMachine {
     constructor(beans: number, public readonly serialNumber: string) {
       // Constructors for derived classes must contain a 'super' call
@@ -85,30 +79,18 @@
       };
     }
   }
-  // offeeMachine 상속받는 설탕 추가 클래스
-  class SweetCoffeeMachine extends CoffeeMachine {
-    makeCoffee(shots: number): CoffeeCup {
-      const coffee = super.makeCoffee(shots);
-      console.log("sugar🍬");
 
-      return {
-        ...coffee,
-        hasSugar: true,
-      };
-    }
-  }
-
-  const machines: CoffeeMaker[] = [
-    new CoffeeMachine(23),
-    new CaffeeLatteMachine(20, "sss"),
-    new SweetCoffeeMachine(11),
-    new CoffeeMachine(23),
-    new CaffeeLatteMachine(20, "sss"),
-    new SweetCoffeeMachine(11),
-  ];
-
-  machines.forEach((machine) => {
-    console.log("-----------------------------");
-    machine.makeCoffee(1);
-  });
+  const machine = new CoffeeMachine(34);
+  const latteMachine = new CaffeeLatteMachine(29, "SSS12345");
+  const latte = latteMachine.makeCoffee(2);
+  console.log(latte);
+  console.log("serialNumber : ", latteMachine.serialNumber);
+  /*
+  grinding beans for 2
+  heating up... 🔥
+  Pulling 2 shots... ☕️
+  Steaming some milk... 🥛
+  { shots: 2, hasMilk: true }
+  serialNumber :  SSS12345
+  */
 }
