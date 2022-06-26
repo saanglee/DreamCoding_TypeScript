@@ -1,10 +1,10 @@
 {
   /*
-  enum type의 문제점
-  : enum type으로 지정된 변수에 다른 type의 값도 할당할 수 있다. 
-  enum은 union 타입으로 대체하여 사용할 수 있다. union타입으로 타입을 보장하여 사용해야 한다. 
-  enum 타입을 사용할 수 밖에 없는 경우 1: mobile client에서 사용하는 native언어에서는 union타입을 표현할 방법이 없기 때문에 enum타입을 사용한다. web client만 사용할 경우에는 enum 사용을 지양한다.
-   */
+enum type의 문제점
+: enum type으로 지정된 변수에 다른 type의 값도 할당할 수 있다. 
+enum은 union 타입으로 대체하여 사용할 수 있다. union타입으로 타입을 보장하여 사용해야 한다. 
+enum 타입을 사용할 수 밖에 없는 경우 1: mobile client에서 사용하는 native언어에서는 union타입을 표현할 방법이 없기 때문에 enum타입을 사용한다. web client만 사용할 경우에는 enum 사용을 지양한다.
+  */
   // JavaScript
   const MAX_NUM = 6;
   const MAX_STUDENTS_PER_CLASS = 10;
